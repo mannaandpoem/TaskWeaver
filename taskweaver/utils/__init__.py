@@ -8,9 +8,10 @@ from datetime import datetime
 from typing import Any, Dict
 
 
-def create_id(length: int = 4) -> str:
+def create_id(length: int = 4, ran_str: str = None) -> str:
     date_str = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
-    ran_str = secrets.token_hex(length)
+    if ran_str is None:
+        ran_str = secrets.token_hex(length)
     return f"{date_str}-{ran_str}"
 
 

@@ -46,8 +46,9 @@ class TaskWeaverApp(object):
         self,
         session_id: Optional[str] = None,
         prev_round_id: Optional[str] = None,
+        ran_str: Optional[str] = None,
     ) -> Session:
-        return self.session_manager.get_session(session_id, prev_round_id)
+        return self.session_manager.get_session(session_id, prev_round_id, ran_str)
 
     @staticmethod
     def discover_app_dir(

@@ -21,11 +21,12 @@ class SessionManager:
         self,
         session_id: Optional[str] = None,
         prev_round_id: Optional[str] = None,
+        ran_str: Optional[str] = None,
     ) -> Session:
         """get session from session store, if session_id is None, create a new session"""
         if session_id is None:
             assert prev_round_id is None
-            session_id = create_id()
+            session_id = create_id(ran_str=ran_str)
             return self._get_session_from_store(session_id, True)
 
         current_session = self._get_session_from_store(session_id, False)
